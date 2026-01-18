@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTIS 255 - Project - 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div id="coverPage">
+        <div class="member-box">
+            <h2>Project Members</h2>
+            <div class="member">
+                <div class="member-photo">
+                    <img src="1.jpeg" alt="Member 1">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">Yaman İlhan</div>
+                    <div class="member-section">Section: 01</div>
+                    <div class="member-id">22302584</div>
+                </div>
+            </div>
+            <div class="member">
+                <div class="member-photo">
+                    <img src="2.jpeg" alt="Member 2">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">Demir Dereli</div>
+                    <div class="member-section">Section: 02</div>
+                    <div class="member-id">22303355</div>
+                </div>
+            </div>
+            <div class="member">
+                <div class="member-photo">
+                    <img src="3.jpeg" alt="Member 3">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">Berke Mehmet Aksoy</div>
+                    <div class="member-section">Section: 02</div>
+                    <div class="member-id">22302800</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COUNTDOWN PAGE -->
+    <div id="countdownPage">
+        <div id="countdownText">3</div>
+    </div>
+
+    <!-- GAME PAGE -->
+    <div id="gamePage">
+        <div class="game-container">
+            <!-- SCORES -->
+            <div class="scores">
+                <div class="score-item">
+                    <div class="score-label">HI-SCORE</div>
+                    <div class="score-value hi-score-value" id="hiScore">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">SCORE</div>
+                    <div class="score-value current-score-value" id="currentScore">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">TIME</div>
+                    <div class="score-value time-value" id="timeDisplay">10</div>
+                </div>
+            </div>
+
+            <!-- GAME BOARD -->
+            <div class="board-wrapper">
+                <div id="tapMessage">Tap the black tiles!</div>
+                <div id="newHiscoreMessage">New<br>Hiscore</div>
+                <div id="timeUpMessage">Time is up</div>
+                <div class="game-board" id="gameBoard">
+                    <!-- 16 tiles will be generated here -->
+                </div>
+            </div>
+
+            <!-- POINT BAR -->
+            <div class="point-bar-container">
+                <div class="point-bar-fill" id="pointBarFill"></div>
+            </div>
+
+            <!-- PLAY AGAIN MESSAGE -->
+            <div id="playAgain">F5 to play again</div>
+        </div>
+    </div>
+
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    user-select: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* COVER PAGE STYLES */
+#coverPage {
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.member-box {
+    background: #555;
+    border-radius: 12px;
+    padding: 40px 50px;
+    max-width: 500px;
+}
+
+.member-box h2 {
+    color: darkblue;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.member:last-child {
+    margin-bottom: 0;
+}
+
+.member-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #888;
+    margin-right: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    color: white;
+}
+
+.member-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.member-section,
+.member-id {
+    font-size: 14px;
+}
+
+/* COUNTDOWN PAGE STYLES */
+#countdownPage {
+    display: none;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#countdownText {
+    color: #b19cd9;
+    font-size: 120px;
+    font-weight: bold;
+}
+
+/* GAME PAGE STYLES */
+#gamePage {
+    display: none;
+    background: white;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.game-container {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* TOP SECTION - SCORES */
+.scores {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-label {
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.score-value {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.hi-score-value {
+    color: black;
+}
+
+.current-score-value {
+    color: green;
+    font-size: 36px;
+}
+
+.time-value {
+    color: red;
+}
+
+/* GAME BOARD */
+.board-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#tapMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: gold;
+    font-size: 42px;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    text-align:center;
+}
+
+#tapMessage.fade-out {
+    opacity: 0;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    border: 2px solid gray;
+    margin: 0 auto;
+}
+
+.tile {
+    border: 1px solid gray;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.tile.black {
+    background: black;
+}
+
+.tile.green {
+    background: green;
+}
+
+.tile-points {
+    position: absolute;
+    color: lightgray;
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tile-points.show {
+    animation: showPoints 1.2s ease-out forwards;
+}
+
+@keyframes showPoints {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* POINT BAR */
+.point-bar-container {
+    width: 100%;
+    max-width: 400px;
+    height: 25px;
+    border: 2px solid black;
+    background: turquoise;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 20px;
+}
+
+.point-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: darkblue;
+    width: 0%;
+    transition: none;
+}
+
+/* GAME OVER MESSAGES */
+#playAgain {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    display: none;
+    margin-top: 20px;
+    animation: pulseText 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+#newHiscoreMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    z-index: 20;
+    pointer-events: none;
+    display: none;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.6),
+        0px 0px 20px rgba(0, 0, 0, 0.4);
+    line-height: 1.3;
+}
+
+#timeUpMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    z-index: 20;
+    pointer-events: none;
+    display: none;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.3),
+        6px 6px 10px rgba(0, 0, 0, 0.2),
+        0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+    display: none !important;
+}
+
